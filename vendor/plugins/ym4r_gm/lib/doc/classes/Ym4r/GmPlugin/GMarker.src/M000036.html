@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>create (Ym4r::GmPlugin::GMarker)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File gm_plugin/overlay.rb, line 27</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">create</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@options</span>.<span class="ruby-identifier">empty?</span>
+          <span class="ruby-identifier">creation</span> = <span class="ruby-node">&quot;new GMarker(#{MappingObject.javascriptify_variable(@point)})&quot;</span>
+        <span class="ruby-keyword kw">else</span>
+          <span class="ruby-identifier">creation</span> = <span class="ruby-node">&quot;new GMarker(#{MappingObject.javascriptify_variable(@point)},#{MappingObject.javascriptify_variable(@options)})&quot;</span>
+        <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@info_window</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@info_window</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>)
+          <span class="ruby-identifier">creation</span> = <span class="ruby-node">&quot;addInfoWindowToMarker(#{creation},#{MappingObject.javascriptify_variable(@info_window)},#{MappingObject.javascriptify_variable(@info_window_options)})&quot;</span>
+        <span class="ruby-keyword kw">elsif</span> <span class="ruby-ivar">@info_window_tabs</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@info_window_tabs</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>)
+          <span class="ruby-identifier">creation</span> = <span class="ruby-node">&quot;addInfoWindowTabsToMarker(#{creation},#{MappingObject.javascriptify_variable(@info_window_tabs.to_a.collect{|kv| GInfoWindowTab.new(kv[0],kv[1] ) })},#{MappingObject.javascriptify_variable(@info_window_options)})&quot;</span>
+        <span class="ruby-keyword kw">elsif</span> <span class="ruby-ivar">@info_window_tabs</span> 
+          <span class="ruby-identifier">creation</span> = <span class="ruby-node">&quot;addInfoWindowTabsToMarker(#{creation},#{MappingObject.javascriptify_variable(Array(@info_window_tabs))},#{MappingObject.javascriptify_variable(@info_window_options)})&quot;</span>
+        <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@address</span>.<span class="ruby-identifier">nil?</span>
+          <span class="ruby-identifier">creation</span>
+        <span class="ruby-keyword kw">else</span>
+          <span class="ruby-node">&quot;addGeocodingToMarker(#{creation},#{MappingObject.javascriptify_variable(@address)})&quot;</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

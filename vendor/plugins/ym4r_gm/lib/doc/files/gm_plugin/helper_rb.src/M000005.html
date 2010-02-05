@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>from_georuby (gm_plugin/helper.rb)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File gm_plugin/helper.rb, line 33</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">from_georuby</span>(<span class="ruby-identifier">ls_or_p</span>, <span class="ruby-identifier">stroke_color</span>=<span class="ruby-value str">&quot;#000000&quot;</span>,<span class="ruby-identifier">stroke_weight</span>=<span class="ruby-value">1</span>,<span class="ruby-identifier">stroke_opacity</span>=<span class="ruby-value">1.0</span>,<span class="ruby-identifier">color</span>=<span class="ruby-value str">&quot;#ff0000&quot;</span>,<span class="ruby-identifier">opacity</span>=<span class="ruby-value">1.0</span>)
+    <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">ls_or_p</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">GeoRuby</span><span class="ruby-operator">::</span><span class="ruby-constant">SimpleFeatures</span><span class="ruby-operator">::</span><span class="ruby-constant">LineString</span>)
+      <span class="ruby-constant">GPolygon</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">ls_or_p</span>.<span class="ruby-identifier">collect</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">point</span><span class="ruby-operator">|</span> <span class="ruby-constant">GLatLng</span>.<span class="ruby-identifier">new</span>([<span class="ruby-identifier">point</span>.<span class="ruby-identifier">y</span>,<span class="ruby-identifier">point</span>.<span class="ruby-identifier">x</span>])},<span class="ruby-identifier">stroke_color</span>,<span class="ruby-identifier">stroke_weight</span>,<span class="ruby-identifier">stroke_opacity</span>,<span class="ruby-identifier">color</span>,<span class="ruby-identifier">opacity</span>)
+    <span class="ruby-keyword kw">else</span>
+      <span class="ruby-constant">GPolygon</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">ls_or_p</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">collect</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">point</span><span class="ruby-operator">|</span> <span class="ruby-constant">GLatLng</span>.<span class="ruby-identifier">new</span>([<span class="ruby-identifier">point</span>.<span class="ruby-identifier">y</span>,<span class="ruby-identifier">point</span>.<span class="ruby-identifier">x</span>])},<span class="ruby-identifier">stroke_color</span>,<span class="ruby-identifier">stroke_weight</span>,<span class="ruby-identifier">stroke_opacity</span>,<span class="ruby-identifier">color</span>,<span class="ruby-identifier">opacity</span>)
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

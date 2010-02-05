@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>method_missing (Ym4r::GmPlugin::MappingObject)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File gm_plugin/mapping.rb, line 9</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">method_missing</span>(<span class="ruby-identifier">name</span>,<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+        <span class="ruby-identifier">str_name</span> = <span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">str_name</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/^on_(.*)/</span>
+          <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">!=</span> <span class="ruby-value">1</span>
+            <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>(<span class="ruby-value str">&quot;Only 1 argument is allowed on on_ methods&quot;</span>);
+          <span class="ruby-keyword kw">else</span>
+            <span class="ruby-constant">Variable</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;GEvent.addListener(#{to_javascript},\&quot;#{MappingObject.javascriptify_method($1)}\&quot;,#{args[0]})&quot;</span>)
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">else</span>
+          <span class="ruby-identifier">args</span>.<span class="ruby-identifier">collect!</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">arg</span><span class="ruby-operator">|</span>
+            <span class="ruby-constant">MappingObject</span>.<span class="ruby-identifier">javascriptify_variable</span>(<span class="ruby-identifier">arg</span>)
+          <span class="ruby-keyword kw">end</span>
+          <span class="ruby-constant">Variable</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;#{to_javascript}.#{MappingObject.javascriptify_method(str_name)}(#{args.join(&quot;,&quot;)})&quot;</span>)
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

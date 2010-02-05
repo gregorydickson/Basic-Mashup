@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>new (Ym4r::GmPlugin::GMarker)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File gm_plugin/overlay.rb, line 8</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">position</span>, <span class="ruby-identifier">options</span> = {})
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">position</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Array</span>)
+          <span class="ruby-ivar">@point</span> = <span class="ruby-constant">GLatLng</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">position</span>)
+        <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">position</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>)
+          <span class="ruby-ivar">@point</span> = <span class="ruby-constant">Variable</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">&quot;INVISIBLE&quot;</span>) <span class="ruby-comment cmt">#default coordinates: won't appear anyway</span>
+          <span class="ruby-ivar">@address</span> = <span class="ruby-identifier">position</span>
+        <span class="ruby-keyword kw">else</span>
+          <span class="ruby-ivar">@point</span> = <span class="ruby-identifier">position</span>
+        <span class="ruby-keyword kw">end</span>
+        <span class="ruby-ivar">@info_window</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:info_window</span>)
+        <span class="ruby-ivar">@info_window_tabs</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:info_window_tabs</span>)
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-identifier">:max_url</span>)
+          <span class="ruby-ivar">@info_window_options</span> = {<span class="ruby-identifier">:max_url</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:max_url</span>) } 
+        <span class="ruby-keyword kw">else</span>
+          <span class="ruby-ivar">@info_window_options</span> = {}
+        <span class="ruby-keyword kw">end</span>
+        <span class="ruby-ivar">@options</span> = <span class="ruby-identifier">options</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

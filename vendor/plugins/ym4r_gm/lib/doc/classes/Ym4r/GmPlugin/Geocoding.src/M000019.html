@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>get (Ym4r::GmPlugin::Geocoding)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File gm_plugin/geocoding.rb, line 17</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">get</span>(<span class="ruby-identifier">request</span>,<span class="ruby-identifier">options</span> = {})
+        <span class="ruby-identifier">api_key</span> = <span class="ruby-constant">ApiKey</span>.<span class="ruby-identifier">get</span>(<span class="ruby-identifier">options</span>)
+        <span class="ruby-identifier">sensor</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:sensor</span>] <span class="ruby-operator">||</span> <span class="ruby-keyword kw">false</span>
+        <span class="ruby-identifier">output</span> =  <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:output</span>] <span class="ruby-operator">||</span> <span class="ruby-value str">&quot;kml&quot;</span>
+        <span class="ruby-identifier">url</span> = <span class="ruby-node">&quot;http://maps.google.com/maps/geo?q=#{URI.encode(request)}&amp;key=#{api_key}&amp;sensor=#{sensor}&amp;output=#{output}&quot;</span>
+
+        <span class="ruby-identifier">res</span> = <span class="ruby-identifier">open</span>(<span class="ruby-identifier">url</span>).<span class="ruby-identifier">read</span>
+
+        <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">output</span>.<span class="ruby-identifier">to_sym</span>
+          <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:json</span>
+          <span class="ruby-identifier">res</span> = <span class="ruby-identifier">eval</span>(<span class="ruby-identifier">res</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-value str">&quot;:&quot;</span>,<span class="ruby-value str">&quot;=&gt;&quot;</span>)) <span class="ruby-comment cmt">#!!!EVAL EVAL EVAL EVAL!!! hopefully we can trust google...</span>
+          <span class="ruby-identifier">placemarks</span> = <span class="ruby-constant">Placemarks</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">res</span>[<span class="ruby-value str">'name'</span>],<span class="ruby-identifier">res</span>[<span class="ruby-value str">'Status'</span>][<span class="ruby-value str">'code'</span>])
+          <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">res</span>[<span class="ruby-value str">'Placemark'</span>]
+            <span class="ruby-identifier">placemark</span> = <span class="ruby-identifier">res</span>[<span class="ruby-value str">'Placemark'</span>]
+   
+            <span class="ruby-identifier">placemark</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">data</span><span class="ruby-operator">|</span>
+              
+              <span class="ruby-identifier">data_country</span> = <span class="ruby-identifier">data</span>[<span class="ruby-value str">'Country'</span>][<span class="ruby-value str">'CountryNameCode'</span>] <span class="ruby-keyword kw">rescue</span> <span class="ruby-value str">&quot;&quot;</span>
+              <span class="ruby-identifier">data_administrative</span> = <span class="ruby-identifier">data</span>[<span class="ruby-value str">'Country'</span>][<span class="ruby-value str">'AdministrativeArea'</span>][<span class="ruby-value str">'AdministrativeAreaName'</span>] <span class="ruby-keyword kw">rescue</span> <span class="ruby-value str">&quot;&quot;</span>
+              <span class="ruby-identifier">data_sub_administrative</span> = <span class="ruby-identifier">data</span>[<span class="ruby-value str">'Country'</span>][<span class="ruby-value str">'AdministrativeArea'</span>][<span class="ruby-value str">'SubAdministrativeArea'</span>][<span class="ruby-value str">'SubAdministrativeAreaName'</span>] <span class="ruby-keyword kw">rescue</span> <span class="ruby-value str">&quot;&quot;</span>
+              <span class="ruby-identifier">data_locality</span> = <span class="ruby-identifier">data</span>[<span class="ruby-value str">'Country'</span>][<span class="ruby-value str">'AdministrativeArea'</span>][<span class="ruby-value str">'SubAdministrativeArea'</span>][<span class="ruby-value str">'Locality'</span>][<span class="ruby-value str">'LocalityName'</span>] <span class="ruby-keyword kw">rescue</span> <span class="ruby-value str">&quot;&quot;</span>
+              <span class="ruby-identifier">data_dependent_locality</span> = <span class="ruby-identifier">data</span>[<span class="ruby-value str">'Country'</span>][<span class="ruby-value str">'AdministrativeArea'</span>][<span class="ruby-value str">'SubAdministrativeArea'</span>][<span class="ruby-value str">'Locality'</span>][<span class="ruby-value str">'DependentLocality'</span>][<span class="ruby-value str">'DependentLocalityName'</span>] <span class="ruby-keyword kw">rescue</span> <span class="ruby-value str">&quot;&quot;</span>
+              <span class="ruby-identifier">data_thoroughfare</span> = <span class="ruby-identifier">data</span>[<span class="ruby-value str">'Country'</span>][<span class="ruby-value str">'AdministrativeArea'</span>][<span class="ruby-value str">'SubAdministrativeArea'</span>][<span class="ruby-value str">'Locality'</span>][<span class="ruby-value str">'DependentLocality'</span>][<span class="ruby-value str">'Thoroughfare'</span>][<span class="ruby-value str">'ThoroughfareName'</span>] <span class="ruby-keyword kw">rescue</span> <span class="ruby-value str">&quot;&quot;</span>
+              <span class="ruby-identifier">data_postal_code</span> = <span class="ruby-identifier">data</span>[<span class="ruby-value str">'Country'</span>][<span class="ruby-value str">'AdministrativeArea'</span>][<span class="ruby-value str">'SubAdministrativeArea'</span>][<span class="ruby-value str">'Locality'</span>][<span class="ruby-value str">'DependentLocality'</span>][<span class="ruby-value str">'Thoroughfare'</span>][<span class="ruby-value str">'PostalCode'</span>][<span class="ruby-value str">'PostalCodeNumber'</span>] <span class="ruby-keyword kw">rescue</span> <span class="ruby-value str">&quot;&quot;</span>
+              <span class="ruby-identifier">lon</span>, <span class="ruby-identifier">lat</span> = <span class="ruby-identifier">data</span>[<span class="ruby-value str">'Point'</span>][<span class="ruby-value str">'coordinates'</span>][<span class="ruby-value">0</span>,<span class="ruby-value">2</span>]
+              <span class="ruby-identifier">data_accuracy</span> = <span class="ruby-identifier">data</span>[<span class="ruby-value str">'Accuracy'</span>]
+              <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">data_accuracy</span>.<span class="ruby-identifier">nil?</span>
+                <span class="ruby-identifier">data_accuracy</span> = <span class="ruby-identifier">data_accuracy</span>.<span class="ruby-identifier">to_i</span>
+              <span class="ruby-keyword kw">end</span>
+        
+              <span class="ruby-identifier">placemarks</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Geocoding</span><span class="ruby-operator">::</span><span class="ruby-constant">Placemark</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">data</span>[<span class="ruby-value str">'address'</span>],
+                                                     <span class="ruby-identifier">data_country</span>,
+                                                     <span class="ruby-identifier">data_administrative</span>,
+                                                     <span class="ruby-identifier">data_sub_administrative</span>,
+                                                     <span class="ruby-identifier">data_locality</span>,
+                                                     <span class="ruby-identifier">data_dependent_locality</span>,
+                                                     <span class="ruby-identifier">data_thoroughfare</span>,
+                                                     <span class="ruby-identifier">data_postal_code</span>,
+                                                     <span class="ruby-identifier">lon</span>, <span class="ruby-identifier">lat</span>, <span class="ruby-identifier">data_accuracy</span>)
+                                                     
+            <span class="ruby-keyword kw">end</span>
+          <span class="ruby-keyword kw">end</span>
+          <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:kml</span>, <span class="ruby-identifier">:xml</span>
+          
+          <span class="ruby-identifier">doc</span> = <span class="ruby-constant">REXML</span><span class="ruby-operator">::</span><span class="ruby-constant">Document</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">res</span>) 
+
+          <span class="ruby-identifier">response</span> = <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">elements</span>[<span class="ruby-value str">'//Response'</span>]
+          <span class="ruby-identifier">placemarks</span> = <span class="ruby-constant">Placemarks</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">response</span>.<span class="ruby-identifier">elements</span>[<span class="ruby-value str">'name'</span>].<span class="ruby-identifier">text</span>,<span class="ruby-identifier">response</span>.<span class="ruby-identifier">elements</span>[<span class="ruby-value str">'Status/code'</span>].<span class="ruby-identifier">text</span>.<span class="ruby-identifier">to_i</span>)
+          <span class="ruby-identifier">response</span>.<span class="ruby-identifier">elements</span>.<span class="ruby-identifier">each</span>(<span class="ruby-value str">&quot;.//Placemark&quot;</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">placemark</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">data</span> = <span class="ruby-identifier">placemark</span>.<span class="ruby-identifier">elements</span>
+            <span class="ruby-identifier">data_country</span> = <span class="ruby-identifier">data</span>[<span class="ruby-value str">'.//CountryNameCode'</span>]
+            <span class="ruby-identifier">data_administrative</span> = <span class="ruby-identifier">data</span>[<span class="ruby-value str">'.//AdministrativeAreaName'</span>]
+            <span class="ruby-identifier">data_sub_administrative</span> = <span class="ruby-identifier">data</span>[<span class="ruby-value str">'.//SubAdministrativeAreaName'</span>]
+            <span class="ruby-identifier">data_locality</span> = <span class="ruby-identifier">data</span>[<span class="ruby-value str">'.//LocalityName'</span>]
+            <span class="ruby-identifier">data_dependent_locality</span> = <span class="ruby-identifier">data</span>[<span class="ruby-value str">'.//DependentLocalityName'</span>]
+            <span class="ruby-identifier">data_thoroughfare</span> = <span class="ruby-identifier">data</span>[<span class="ruby-value str">'.//ThoroughfareName'</span>]
+            <span class="ruby-identifier">data_postal_code</span> = <span class="ruby-identifier">data</span>[<span class="ruby-value str">'.//PostalCodeNumber'</span>]
+            <span class="ruby-identifier">lon</span>, <span class="ruby-identifier">lat</span> = <span class="ruby-identifier">data</span>[<span class="ruby-value str">'.//coordinates'</span>].<span class="ruby-identifier">text</span>.<span class="ruby-identifier">split</span>(<span class="ruby-value str">&quot;,&quot;</span>)[<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-value">1</span>].<span class="ruby-identifier">collect</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">l</span><span class="ruby-operator">|</span> <span class="ruby-identifier">l</span>.<span class="ruby-identifier">to_f</span> }
+            <span class="ruby-identifier">data_accuracy</span> = <span class="ruby-identifier">data</span>[<span class="ruby-value str">'.//*[local-name()=&quot;AddressDetails&quot;]'</span>].<span class="ruby-identifier">attributes</span>[<span class="ruby-value str">'Accuracy'</span>]
+            <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">data_accuracy</span>.<span class="ruby-identifier">nil?</span>
+               <span class="ruby-identifier">data_accuracy</span> = <span class="ruby-identifier">data_accuracy</span>.<span class="ruby-identifier">to_i</span>
+             <span class="ruby-keyword kw">end</span>
+            <span class="ruby-identifier">placemarks</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Geocoding</span><span class="ruby-operator">::</span><span class="ruby-constant">Placemark</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">data</span>[<span class="ruby-value str">'address'</span>].<span class="ruby-identifier">text</span>,
+                                                   <span class="ruby-identifier">data_country</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-value">? </span><span class="ruby-value str">&quot;&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">data_country</span>.<span class="ruby-identifier">text</span>,
+                                                   <span class="ruby-identifier">data_administrative</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-value">? </span><span class="ruby-value str">&quot;&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">data_administrative</span>.<span class="ruby-identifier">text</span>,
+                                                   <span class="ruby-identifier">data_sub_administrative</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-value">? </span><span class="ruby-value str">&quot;&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">data_sub_administrative</span>.<span class="ruby-identifier">text</span>,
+                                                   <span class="ruby-identifier">data_locality</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-value">? </span><span class="ruby-value str">&quot;&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">data_locality</span>.<span class="ruby-identifier">text</span>,
+                                                   <span class="ruby-identifier">data_dependent_locality</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-value">? </span><span class="ruby-value str">&quot;&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">data_dependent_locality</span>.<span class="ruby-identifier">text</span>,
+                                                   <span class="ruby-identifier">data_thoroughfare</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-value">? </span><span class="ruby-value str">&quot;&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">data_thoroughfare</span>.<span class="ruby-identifier">text</span>,
+                                                   <span class="ruby-identifier">data_postal_code</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-value">? </span><span class="ruby-value str">&quot;&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">data_postal_code</span>.<span class="ruby-identifier">text</span>,
+                                                   <span class="ruby-identifier">lon</span>, <span class="ruby-identifier">lat</span>, <span class="ruby-identifier">data_accuracy</span> )
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+                
+        <span class="ruby-identifier">placemarks</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

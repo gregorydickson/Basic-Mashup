@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>new (Ym4r::GmPlugin::GPolylineEncoded)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File gm_plugin/overlay.rb, line 112</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">options</span>={})
+        <span class="ruby-comment cmt">#points = options[:points]</span>
+        <span class="ruby-comment cmt">#if !points.empty? and points[0].is_a?(Array)</span>
+        <span class="ruby-comment cmt">#  @points = points.collect { |pt| GLatLng.new(pt) }</span>
+        <span class="ruby-comment cmt">#else</span>
+        <span class="ruby-comment cmt">#@points = points</span>
+          <span class="ruby-comment cmt">#end</span>
+        <span class="ruby-ivar">@points</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:points</span>]
+        <span class="ruby-ivar">@color</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:color</span>]
+        <span class="ruby-ivar">@weight</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:weight</span>]
+        <span class="ruby-ivar">@opacity</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:opacity</span>]
+        <span class="ruby-ivar">@levels</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:levels</span>] <span class="ruby-operator">||</span> <span class="ruby-value str">&quot;BBBBBBBBBBBB&quot;</span>
+        <span class="ruby-ivar">@zoom_factor</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:zoom_factor</span>] <span class="ruby-operator">||</span> <span class="ruby-value">32</span>
+        <span class="ruby-ivar">@num_levels</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:num_levels</span>] <span class="ruby-operator">||</span> <span class="ruby-value">4</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>new (Ym4r::GmPlugin::Clusterer)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File gm_plugin/overlay.rb, line 338</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">markers</span> = [], <span class="ruby-identifier">options</span> = {})
+        <span class="ruby-ivar">@markers</span> = <span class="ruby-identifier">markers</span>
+        <span class="ruby-ivar">@icon</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:icon</span>] <span class="ruby-operator">||</span> <span class="ruby-constant">GIcon</span><span class="ruby-operator">::</span><span class="ruby-constant">DEFAULT</span>
+        <span class="ruby-ivar">@max_visible_markers</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:max_visible_markers</span>] <span class="ruby-operator">||</span> <span class="ruby-value">150</span>
+        <span class="ruby-ivar">@grid_size</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:grid_size</span>] <span class="ruby-operator">||</span> <span class="ruby-value">5</span>
+        <span class="ruby-ivar">@min_markers_per_cluster</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:min_markers_per_cluster</span>] <span class="ruby-operator">||</span> <span class="ruby-value">5</span>
+        <span class="ruby-ivar">@max_lines_per_info_box</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:max_lines_per_info_box</span>] <span class="ruby-operator">||</span> <span class="ruby-value">10</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

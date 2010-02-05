@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>new (Ym4r::GmPlugin::WMSLayer)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File gm_plugin/layer.rb, line 100</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">base_url</span>, <span class="ruby-identifier">layers</span>, <span class="ruby-identifier">options</span> = {})
+        <span class="ruby-keyword kw">super</span>(<span class="ruby-identifier">options</span>)
+        <span class="ruby-ivar">@base_url</span> = <span class="ruby-identifier">base_url</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp re">/\?$/</span>,<span class="ruby-value str">&quot;&quot;</span>) <span class="ruby-comment cmt">#standardize the url</span>
+        <span class="ruby-ivar">@layers</span> = <span class="ruby-identifier">layers</span>
+        <span class="ruby-ivar">@styles</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:styles</span>] <span class="ruby-operator">||</span> <span class="ruby-value str">&quot;&quot;</span>
+        <span class="ruby-identifier">merc_proj</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:merc_proj</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">:mapserver</span>
+        <span class="ruby-ivar">@merc_proj</span> = <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">merc_proj</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">:mapserver</span>
+                       <span class="ruby-value str">&quot;54004&quot;</span>
+                     <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">merc_proj</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">:geoserver</span>
+                       <span class="ruby-value str">&quot;41001&quot;</span>
+                     <span class="ruby-keyword kw">else</span>
+                       <span class="ruby-identifier">merc_proj</span>.<span class="ruby-identifier">to_s</span>
+                     <span class="ruby-keyword kw">end</span>
+        <span class="ruby-ivar">@use_geographic</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-identifier">:use_geographic</span>)<span class="ruby-operator">?</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:use_geographic</span>] <span class="ruby-operator">:</span> <span class="ruby-keyword kw">false</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-identifier">format</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

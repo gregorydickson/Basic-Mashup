@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>header (Ym4r::GmPlugin::GMap)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File gm_plugin/map.rb, line 29</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">header</span>(<span class="ruby-identifier">options</span> = {})
+        <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:with_vml</span>] = <span class="ruby-keyword kw">true</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-identifier">:with_vml</span>)
+        <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:hl</span>] <span class="ruby-operator">||=</span> <span class="ruby-value str">''</span>
+        <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:local_search</span>] = <span class="ruby-keyword kw">false</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-identifier">:local_search</span>)
+        <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:sensor</span>] = <span class="ruby-keyword kw">false</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-identifier">:sensor</span>)
+        <span class="ruby-identifier">api_key</span> = <span class="ruby-constant">ApiKey</span>.<span class="ruby-identifier">get</span>(<span class="ruby-identifier">options</span>)
+        <span class="ruby-identifier">a</span> = <span class="ruby-node">&quot;&lt;script src=\&quot;http://maps.google.com/maps?file=api&amp;amp;v=2.x&amp;amp;key=#{api_key}&amp;amp;hl=#{options[:hl]}&amp;amp;sensor=#{options[:sensor]}\&quot; type=\&quot;text/javascript\&quot;&gt;&lt;/script&gt;\n&quot;</span>
+        <span class="ruby-identifier">a</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;&lt;script src=\&quot;#{ActionController::Base.relative_url_root}/javascripts/ym4r-gm.js\&quot; type=\&quot;text/javascript\&quot;&gt;&lt;/script&gt;\n&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:without_js</span>]
+        <span class="ruby-identifier">a</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">&quot;&lt;style type=\&quot;text/css\&quot;&gt;\n v\:* { behavior:url(#default#VML);}\n&lt;/style&gt;&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:with_vml</span>]
+        <span class="ruby-identifier">a</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">&quot;&lt;script src=\&quot;http://www.google.com/uds/api?file=uds.js&amp;amp;v=1.0\&quot; type=\&quot;text/javascript\&quot;&gt;&lt;/script&gt;&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:local_search</span>]
+        <span class="ruby-identifier">a</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">&quot;&lt;script src=\&quot;http://www.google.com/uds/solutions/localsearch/gmlocalsearch.js\&quot; type=\&quot;text/javascript\&quot;&gt;&lt;/script&gt;\n&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:local_search</span>]
+        <span class="ruby-identifier">a</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">&quot;&lt;style type=\&quot;text/css\&quot;&gt;@import url(\&quot;http://www.google.com/uds/css/gsearch.css\&quot;);@import url(\&quot;http://www.google.com/uds/solutions/localsearch/gmlocalsearch.css\&quot;);}&lt;/style&gt;&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:local_search</span>]
+        <span class="ruby-identifier">a</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

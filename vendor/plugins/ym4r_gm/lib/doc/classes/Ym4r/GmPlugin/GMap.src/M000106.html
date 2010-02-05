@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>to_html (Ym4r::GmPlugin::GMap)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File gm_plugin/map.rb, line 225</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_html</span>(<span class="ruby-identifier">options</span> = {})
+        <span class="ruby-identifier">no_load</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:no_load</span>]
+        <span class="ruby-identifier">no_script_tag</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:no_script_tag</span>]
+        <span class="ruby-identifier">no_declare</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:no_declare</span>]
+        <span class="ruby-identifier">no_global</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:no_global</span>]
+        <span class="ruby-identifier">fullscreen</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:full</span>]
+        <span class="ruby-identifier">load_pr</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:proto_load</span>] <span class="ruby-comment cmt">#to prevent some problems when the onload event callback from Prototype is used</span>
+        
+        <span class="ruby-identifier">html</span> = <span class="ruby-value str">&quot;&quot;</span>
+        <span class="ruby-identifier">html</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">&quot;&lt;script type=\&quot;text/javascript\&quot;&gt;\n&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">no_script_tag</span>
+        <span class="ruby-comment cmt">#put the functions in a separate javascript file to be included in the page</span>
+        <span class="ruby-identifier">html</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-ivar">@global_init</span> <span class="ruby-operator">*</span> <span class="ruby-value str">&quot;\n&quot;</span>
+        <span class="ruby-identifier">html</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;var #{@variable};\n&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">no_declare</span> <span class="ruby-keyword kw">and</span> <span class="ruby-operator">!</span><span class="ruby-identifier">no_global</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">no_load</span>
+          <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">load_pr</span>
+            <span class="ruby-identifier">html</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">&quot;Event.observe(window,'load',&quot;</span>
+          <span class="ruby-keyword kw">else</span>
+            <span class="ruby-identifier">html</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">&quot;window.onload = addCodeToFunction(window.onload,&quot;</span>
+          <span class="ruby-keyword kw">end</span>
+          <span class="ruby-identifier">html</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">&quot;function() {\n&quot;</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">html</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">&quot;if (GBrowserIsCompatible()) {\n&quot;</span> 
+        
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">fullscreen</span>
+          <span class="ruby-comment cmt">#Adding the initial resizing and setting up the event handler for</span>
+          <span class="ruby-comment cmt">#future resizes</span>
+          <span class="ruby-identifier">html</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;setWindowDims(document.getElementById('#{@container}'));\n&quot;</span>
+          <span class="ruby-identifier">html</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;if (window.attachEvent) { window.attachEvent(\&quot;onresize\&quot;, function() {setWindowDims(document.getElementById('#{@container}'));})} else {window.addEventListener(\&quot;resize\&quot;, function() {setWindowDims(document.getElementById('#{@container}')); } , false);}\n&quot;</span>
+        <span class="ruby-keyword kw">end</span>
+      
+        <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">no_declare</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">no_global</span> 
+          <span class="ruby-identifier">html</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;#{declare(@variable)}\n&quot;</span>
+        <span class="ruby-keyword kw">else</span>
+          <span class="ruby-identifier">html</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;#{assign_to(@variable)}\n&quot;</span>
+        <span class="ruby-keyword kw">end</span>
+        <span class="ruby-identifier">html</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-ivar">@init_begin</span> <span class="ruby-operator">*</span> <span class="ruby-value str">&quot;\n&quot;</span>
+        <span class="ruby-identifier">html</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-ivar">@init</span> <span class="ruby-operator">*</span> <span class="ruby-value str">&quot;\n&quot;</span>
+        <span class="ruby-identifier">html</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-ivar">@init_end</span> <span class="ruby-operator">*</span> <span class="ruby-value str">&quot;\n&quot;</span>
+        <span class="ruby-identifier">html</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">&quot;\n}\n&quot;</span>
+        <span class="ruby-identifier">html</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">&quot;});\n&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">no_load</span>
+        <span class="ruby-identifier">html</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">&quot;&lt;/script&gt;&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">no_script_tag</span>
+        
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">fullscreen</span>
+          <span class="ruby-comment cmt">#setting up the style in case of full screen</span>
+          <span class="ruby-identifier">html</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;&lt;style&gt;html, body {width: 100%; height: 100%} body {margin-top: 0px; margin-right: 0px; margin-left: 0px; margin-bottom: 0px} ##{@container} {margin:  0px;} &lt;/style&gt;&quot;</span>
+        <span class="ruby-keyword kw">end</span>
+        
+        <span class="ruby-identifier">html</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

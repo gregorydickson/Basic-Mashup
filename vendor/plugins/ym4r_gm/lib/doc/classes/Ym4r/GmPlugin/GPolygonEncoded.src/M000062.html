@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>create (Ym4r::GmPlugin::GPolygonEncoded)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File gm_plugin/overlay.rb, line 217</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">create</span>
+        <span class="ruby-identifier">polylines_for_polygon</span>= []
+        <span class="ruby-ivar">@polylines</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">x</span> = <span class="ruby-node">&quot;{points: #{MappingObject.javascriptify_variable(p.points)},&quot;</span> 
+          <span class="ruby-identifier">x</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;levels: #{MappingObject.javascriptify_variable(p.levels)},&quot;</span>
+          <span class="ruby-identifier">x</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;zoomFactor: #{MappingObject.javascriptify_variable(p.zoom_factor)},&quot;</span>
+          <span class="ruby-identifier">x</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;numLevels: #{MappingObject.javascriptify_variable(p.num_levels)} &quot;</span>
+          <span class="ruby-identifier">x</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">&quot;}&quot;</span>
+          <span class="ruby-identifier">polylines_for_polygon</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">x</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">polylines_for_polygon</span> = <span class="ruby-value str">&quot;[&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">polylines_for_polygon</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot;,&quot;</span>) <span class="ruby-operator">+</span> <span class="ruby-value str">&quot;]&quot;</span>
+
+        <span class="ruby-identifier">a</span> = <span class="ruby-node">&quot;new GPolygon.fromEncoded({polylines: #{polylines_for_polygon},&quot;</span>
+        <span class="ruby-identifier">a</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;fill: #{MappingObject.javascriptify_variable(@fill)},&quot;</span>
+        <span class="ruby-identifier">a</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;color: #{MappingObject.javascriptify_variable(@color)},&quot;</span>
+        <span class="ruby-identifier">a</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;opacity: #{MappingObject.javascriptify_variable(@opacity)},&quot;</span>
+        <span class="ruby-identifier">a</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;outline: #{MappingObject.javascriptify_variable(@outline)}&quot;</span>
+        <span class="ruby-identifier">a</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">&quot;})&quot;</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

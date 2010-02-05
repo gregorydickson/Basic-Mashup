@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>interface_init (Ym4r::GmPlugin::GMap)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File gm_plugin/map.rb, line 87</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">interface_init</span>(<span class="ruby-identifier">interface</span> = {})
+        <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">interface</span>[<span class="ruby-identifier">:dragging</span>].<span class="ruby-identifier">nil?</span>
+          <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">interface</span>[<span class="ruby-identifier">:dragging</span>]
+             <span class="ruby-ivar">@init</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">enableDragging</span>() 
+          <span class="ruby-keyword kw">else</span>
+            <span class="ruby-ivar">@init</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">disableDragging</span>() 
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">interface</span>[<span class="ruby-identifier">:info_window</span>].<span class="ruby-identifier">nil?</span>
+          <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">interface</span>[<span class="ruby-identifier">:info_window</span>]
+            <span class="ruby-ivar">@init</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">enableInfoWindow</span>()
+          <span class="ruby-keyword kw">else</span>
+            <span class="ruby-ivar">@init</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">disableInfoWindow</span>()
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">interface</span>[<span class="ruby-identifier">:double_click_zoom</span>].<span class="ruby-identifier">nil?</span>
+          <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">interface</span>[<span class="ruby-identifier">:double_click_zoom</span>]
+            <span class="ruby-ivar">@init</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">enableDoubleClickZoom</span>()
+          <span class="ruby-keyword kw">else</span>
+            <span class="ruby-ivar">@init</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">disableDoubleClickZoom</span>()
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">interface</span>[<span class="ruby-identifier">:continuous_zoom</span>].<span class="ruby-identifier">nil?</span>
+          <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">interface</span>[<span class="ruby-identifier">:continuous_zoom</span>]
+            <span class="ruby-ivar">@init</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">enableContinuousZoom</span>()
+          <span class="ruby-keyword kw">else</span>
+            <span class="ruby-ivar">@init</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">disableContinuousZoom</span>()
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">interface</span>[<span class="ruby-identifier">:scroll_wheel_zoom</span>].<span class="ruby-identifier">nil?</span>
+          <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">interface</span>[<span class="ruby-identifier">:scroll_wheel_zoom</span>]
+            <span class="ruby-ivar">@init</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">enableScrollWheelZoom</span>()
+          <span class="ruby-keyword kw">else</span>
+            <span class="ruby-ivar">@init</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">disableScrollWheelZoom</span>()
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>
