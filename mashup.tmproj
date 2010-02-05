@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>currentDocument</key>
+	<string>/Volumes/mac_data/mashup/okiereview/app/controllers/mashup_controller.rb</string>
+	<key>documents</key>
+	<array>
+		<dict>
+			<key>filename</key>
+			<string>app/controllers/mashup_controller.rb</string>
+			<key>lastUsed</key>
+			<date>2010-02-05T15:42:57Z</date>
+			<key>selected</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>filename</key>
+			<string>app/views/mashup/index.html.erb</string>
+		</dict>
+		<dict>
+			<key>filename</key>
+			<string>app/models/oklahoma.rb</string>
+		</dict>
+		<dict>
+			<key>filename</key>
+			<string>app/helpers/mashup_helper.rb</string>
+		</dict>
+	</array>
+	<key>fileHierarchyDrawerWidth</key>
+	<integer>177</integer>
+	<key>metaData</key>
+	<dict>
+		<key>/Volumes/mac_data/mashup/okiereview/app/controllers/mashup_controller.rb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>10</integer>
+				<key>line</key>
+				<integer>16</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>openDocuments</key>
+	<array>
+		<string>/Volumes/mac_data/mashup/okiereview/app/controllers/mashup_controller.rb</string>
+	</array>
+	<key>showFileHierarchyDrawer</key>
+	<true/>
+	<key>windowFrame</key>
+	<string>{{684, 131}, {861, 742}}</string>
+</dict>
+</plist>

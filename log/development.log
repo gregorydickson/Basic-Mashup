@@ -301,3 +301,600 @@ Completed in 64ms (View: 57, DB: 0) | 200 OK [http://localhost/mashup]
 Processing MashupController#index (for 127.0.0.1 at 2010-02-03 17:12:13) [GET]
 Rendering mashup/index
 Completed in 65ms (View: 57, DB: 0) | 200 OK [http://localhost/mashup]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MashupController#index (for 127.0.0.1 at 2010-02-04 12:43:52) [GET]
+Rendering mashup/index
+Completed in 67ms (View: 60, DB: 0) | 200 OK [http://localhost/mashup]
+/!\ FAILSAFE /!\  Fri Feb 05 09:55:49 -0600 2010
+  Status: 500 Internal Server Error
+  Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/mysql_adapter.rb:585:in `real_connect'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/mysql_adapter.rb:585:in `connect'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/mysql_adapter.rb:199:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/mysql_adapter.rb:71:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/mysql_adapter.rb:71:in `mysql_connection'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:223:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:223:in `new_connection'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:245:in `checkout_new_connection'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:188:in `checkout'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:184:in `loop'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:184:in `checkout'
+    /usr/local/lib/ruby/1.8/monitor.rb:242:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:183:in `checkout'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:98:in `connection'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:326:in `retrieve_connection'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/connection_specification.rb:123:in `retrieve_connection'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/connection_specification.rb:115:in `connection'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:9:in `cache'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:28:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/head.rb:9:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/methodoverride.rb:24:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/params_parser.rb:15:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/session/cookie_store.rb:93:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/failsafe.rb:26:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:114:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/reloader.rb:34:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:108:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-2.3.4/lib/rails/rack/static.rb:31:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:46:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-2.3.4/lib/rails/rack/log_tailer.rb:17:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/content_length.rb:13:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/chunked.rb:15:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/handler/mongrel.rb:64:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/handler/mongrel.rb:34:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-2.3.4/lib/commands/server.rb:111
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+  [4;36;1mSQL (2.6ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MashupController#index (for 127.0.0.1 at 2010-02-05 09:56:23) [GET]
+Rendering mashup/index
+Completed in 133ms (View: 126, DB: 3) | 200 OK [http://localhost/mashup]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MashupController#index (for 127.0.0.1 at 2010-02-05 09:58:37) [GET]
+Rendering mashup/index
+Completed in 71ms (View: 64, DB: 0) | 200 OK [http://localhost/mashup]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MashupController#add (for 127.0.0.1 at 2010-02-05 09:58:40) [POST]
+  Parameters: {"commit"=>"Add Jobs", "authenticity_token"=>"0jD0xKA7LR6xbx4x0+D38Z7/aB0KP7red59m+FSNsQw="}
+
+NameError (undefined local variable or method `zcta' for #<MashupController:0x28c87a8>):
+  app/controllers/mashup_controller.rb:17:in `add'
+
+Rendered rescues/_trace (68.3ms)
+Rendered rescues/_request_and_response (2.5ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#add (for 127.0.0.1 at 2010-02-05 10:35:11) [POST]
+  Parameters: {"commit"=>"Add Jobs", "authenticity_token"=>"0jD0xKA7LR6xbx4x0+D38Z7/aB0KP7red59m+FSNsQw="}
+
+SyntaxError (/Volumes/mac_data/mashup/okiereview/app/controllers/mashup_controller.rb:19: syntax error, unexpected ',', expecting ')'
+       GMarker.new(,:title => "Navy Pier", :info_w...
+                    ^
+/Volumes/mac_data/mashup/okiereview/app/controllers/mashup_controller.rb:19: syntax error, unexpected ',', expecting kEND
+...er.new(,:title => "Navy Pier", :info_window => "Navy Pier")
+                              ^
+/Volumes/mac_data/mashup/okiereview/app/controllers/mashup_controller.rb:19: syntax error, unexpected ')', expecting kEND):
+  
+
+Rendered rescues/_trace (128.1ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MashupController#index (for 127.0.0.1 at 2010-02-05 10:42:29) [GET]
+Rendering mashup/index
+Completed in 28ms (View: 21, DB: 0) | 200 OK [http://localhost/mashup]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MashupController#add (for 127.0.0.1 at 2010-02-05 10:42:32) [POST]
+  Parameters: {"commit"=>"Add Jobs", "authenticity_token"=>"0jD0xKA7LR6xbx4x0+D38Z7/aB0KP7red59m+FSNsQw="}
+
+NoMethodError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.overlay_init):
+  app/controllers/mashup_controller.rb:17:in `add'
+
+Rendered rescues/_trace (65.5ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MashupController#add (for 127.0.0.1 at 2010-02-05 10:42:33) [POST]
+  Parameters: {"commit"=>"Add Jobs", "authenticity_token"=>"0jD0xKA7LR6xbx4x0+D38Z7/aB0KP7red59m+FSNsQw="}
+
+NoMethodError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.overlay_init):
+  app/controllers/mashup_controller.rb:17:in `add'
+
+Rendered rescues/_trace (65.3ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MashupController#index (for 127.0.0.1 at 2010-02-05 10:44:23) [GET]
+Rendering mashup/index
+Completed in 70ms (View: 63, DB: 0) | 200 OK [http://localhost/mashup]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MashupController#add (for 127.0.0.1 at 2010-02-05 10:44:25) [POST]
+  Parameters: {"commit"=>"Add Jobs", "authenticity_token"=>"0jD0xKA7LR6xbx4x0+D38Z7/aB0KP7red59m+FSNsQw="}
+Rendering mashup/index
+Completed in 19ms (View: 12, DB: 0) | 200 OK [http://localhost/mashup/add]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MashupController#index (for 127.0.0.1 at 2010-02-05 10:45:48) [GET]
+Rendering mashup/index
+Completed in 70ms (View: 63, DB: 0) | 200 OK [http://localhost/mashup]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MashupController#add (for 127.0.0.1 at 2010-02-05 10:45:50) [POST]
+  Parameters: {"commit"=>"Add Jobs", "authenticity_token"=>"0jD0xKA7LR6xbx4x0+D38Z7/aB0KP7red59m+FSNsQw="}
+Rendering mashup/index
+Completed in 19ms (View: 12, DB: 0) | 200 OK [http://localhost/mashup/add]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MashupController#add (for 127.0.0.1 at 2010-02-05 10:45:52) [POST]
+  Parameters: {"commit"=>"Add Jobs", "authenticity_token"=>"0jD0xKA7LR6xbx4x0+D38Z7/aB0KP7red59m+FSNsQw="}
+Rendering mashup/index
+Completed in 19ms (View: 12, DB: 0) | 200 OK [http://localhost/mashup/add]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MashupController#index (for 127.0.0.1 at 2010-02-05 10:50:03) [GET]
+Rendering mashup/index
+Completed in 70ms (View: 63, DB: 0) | 200 OK [http://localhost/mashup]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MashupController#add (for 127.0.0.1 at 2010-02-05 10:50:05) [POST]
+  Parameters: {"commit"=>"Add Jobs", "authenticity_token"=>"0jD0xKA7LR6xbx4x0+D38Z7/aB0KP7red59m+FSNsQw="}
+Rendering mashup/index
+Completed in 19ms (View: 12, DB: 0) | 200 OK [http://localhost/mashup/add]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MashupController#index (for 127.0.0.1 at 2010-02-05 11:12:34) [GET]
+Rendering mashup/index
+Completed in 71ms (View: 63, DB: 0) | 200 OK [http://localhost/mashup]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MashupController#add (for 127.0.0.1 at 2010-02-05 11:12:36) [POST]
+  Parameters: {"commit"=>"Add Jobs", "authenticity_token"=>"0jD0xKA7LR6xbx4x0+D38Z7/aB0KP7red59m+FSNsQw="}
+
+ActionView::MissingTemplate (Missing template mashup/add.erb in view path app/views):
+  
+
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MashupController#index (for 127.0.0.1 at 2010-02-05 11:20:40) [GET]
+Rendering mashup/index
+Completed in 70ms (View: 63, DB: 0) | 200 OK [http://localhost/mashup]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MashupController#add (for 127.0.0.1 at 2010-02-05 11:20:42) [POST]
+  Parameters: {"commit"=>"Add Jobs", "authenticity_token"=>"0jD0xKA7LR6xbx4x0+D38Z7/aB0KP7red59m+FSNsQw="}
+Rendering mashup/add
+Completed in 16ms (View: 8, DB: 0) | 200 OK [http://localhost/mashup/add]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MashupController#add (for 127.0.0.1 at 2010-02-05 11:21:11) [POST]
+  Parameters: {"commit"=>"Add Jobs", "authenticity_token"=>"0jD0xKA7LR6xbx4x0+D38Z7/aB0KP7red59m+FSNsQw="}
+Rendering mashup/add
+Completed in 9ms (View: 1, DB: 0) | 200 OK [http://localhost/mashup/add]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MashupController#index (for 127.0.0.1 at 2010-02-05 11:23:15) [GET]
+Rendering mashup/index
+Completed in 70ms (View: 62, DB: 0) | 200 OK [http://localhost/mashup]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MashupController#add (for 127.0.0.1 at 2010-02-05 11:23:17) [POST]
+  Parameters: {"commit"=>"Add Jobs", "authenticity_token"=>"0jD0xKA7LR6xbx4x0+D38Z7/aB0KP7red59m+FSNsQw="}
+Rendering mashup/add
+Completed in 16ms (View: 9, DB: 0) | 200 OK [http://localhost/mashup/add]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MashupController#index (for 127.0.0.1 at 2010-02-05 11:27:16) [GET]
+Rendering mashup/index
+Completed in 28ms (View: 20, DB: 0) | 200 OK [http://localhost/mashup]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MashupController#add (for 127.0.0.1 at 2010-02-05 11:27:18) [POST]
+  Parameters: {"commit"=>"Add Jobs", "authenticity_token"=>"0jD0xKA7LR6xbx4x0+D38Z7/aB0KP7red59m+FSNsQw="}
+Rendering mashup/add
+Completed in 17ms (View: 9, DB: 0) | 200 OK [http://localhost/mashup/add]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MashupController#add (for 127.0.0.1 at 2010-02-05 11:27:21) [POST]
+  Parameters: {"commit"=>"Add Jobs", "authenticity_token"=>"0jD0xKA7LR6xbx4x0+D38Z7/aB0KP7red59m+FSNsQw="}
+Rendering mashup/add
+Completed in 9ms (View: 2, DB: 0) | 200 OK [http://localhost/mashup/add]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MashupController#add (for 127.0.0.1 at 2010-02-05 11:27:22) [POST]
+  Parameters: {"commit"=>"Add Jobs", "authenticity_token"=>"0jD0xKA7LR6xbx4x0+D38Z7/aB0KP7red59m+FSNsQw="}
+Rendering mashup/add
+Completed in 9ms (View: 2, DB: 0) | 200 OK [http://localhost/mashup/add]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MashupController#add (for 127.0.0.1 at 2010-02-05 11:27:23) [POST]
+  Parameters: {"commit"=>"Add Jobs", "authenticity_token"=>"0jD0xKA7LR6xbx4x0+D38Z7/aB0KP7red59m+FSNsQw="}
+Rendering mashup/add
+Completed in 9ms (View: 2, DB: 0) | 200 OK [http://localhost/mashup/add]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MashupController#add (for 127.0.0.1 at 2010-02-05 11:27:23) [POST]
+  Parameters: {"commit"=>"Add Jobs", "authenticity_token"=>"0jD0xKA7LR6xbx4x0+D38Z7/aB0KP7red59m+FSNsQw="}
+Rendering mashup/add
+Completed in 9ms (View: 2, DB: 0) | 200 OK [http://localhost/mashup/add]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MashupController#add (for 127.0.0.1 at 2010-02-05 11:27:23) [POST]
+  Parameters: {"commit"=>"Add Jobs", "authenticity_token"=>"0jD0xKA7LR6xbx4x0+D38Z7/aB0KP7red59m+FSNsQw="}
+Rendering mashup/add
+Completed in 9ms (View: 2, DB: 0) | 200 OK [http://localhost/mashup/add]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MashupController#add (for 127.0.0.1 at 2010-02-05 11:27:23) [POST]
+  Parameters: {"commit"=>"Add Jobs", "authenticity_token"=>"0jD0xKA7LR6xbx4x0+D38Z7/aB0KP7red59m+FSNsQw="}
+Rendering mashup/add
+Completed in 9ms (View: 2, DB: 0) | 200 OK [http://localhost/mashup/add]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MashupController#add (for 127.0.0.1 at 2010-02-05 11:27:23) [POST]
+  Parameters: {"commit"=>"Add Jobs", "authenticity_token"=>"0jD0xKA7LR6xbx4x0+D38Z7/aB0KP7red59m+FSNsQw="}
+Rendering mashup/add
+Completed in 9ms (View: 2, DB: 0) | 200 OK [http://localhost/mashup/add]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MashupController#add (for 127.0.0.1 at 2010-02-05 11:27:24) [POST]
+  Parameters: {"commit"=>"Add Jobs", "authenticity_token"=>"0jD0xKA7LR6xbx4x0+D38Z7/aB0KP7red59m+FSNsQw="}
+Rendering mashup/add
+Completed in 9ms (View: 2, DB: 0) | 200 OK [http://localhost/mashup/add]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MashupController#index (for 127.0.0.1 at 2010-02-05 11:28:32) [GET]
+Rendering mashup/index
+Completed in 71ms (View: 64, DB: 0) | 200 OK [http://localhost/mashup]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MashupController#add (for 127.0.0.1 at 2010-02-05 11:28:33) [POST]
+  Parameters: {"commit"=>"Add Jobs", "authenticity_token"=>"0jD0xKA7LR6xbx4x0+D38Z7/aB0KP7red59m+FSNsQw="}
+Rendering mashup/add
+Completed in 16ms (View: 9, DB: 0) | 200 OK [http://localhost/mashup/add]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MashupController#add (for 127.0.0.1 at 2010-02-05 11:28:47) [POST]
+  Parameters: {"commit"=>"Add Jobs", "authenticity_token"=>"0jD0xKA7LR6xbx4x0+D38Z7/aB0KP7red59m+FSNsQw="}
+Rendering mashup/add
+Completed in 16ms (View: 9, DB: 0) | 200 OK [http://localhost/mashup/add]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MashupController#index (for 127.0.0.1 at 2010-02-05 11:37:55) [GET]
+Rendering mashup/index
+Completed in 71ms (View: 64, DB: 0) | 200 OK [http://localhost/mashup]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MashupController#add (for 127.0.0.1 at 2010-02-05 11:37:57) [POST]
+  Parameters: {"commit"=>"Add Jobs", "authenticity_token"=>"0jD0xKA7LR6xbx4x0+D38Z7/aB0KP7red59m+FSNsQw="}
+Rendering mashup/add
+Completed in 15ms (View: 8, DB: 0) | 200 OK [http://localhost/mashup/add]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MashupController#add (for 127.0.0.1 at 2010-02-05 11:47:14) [POST]
+  Parameters: {"commit"=>"Add Jobs", "authenticity_token"=>"0jD0xKA7LR6xbx4x0+D38Z7/aB0KP7red59m+FSNsQw="}
+Rendering mashup/add
+Completed in 8ms (View: 1, DB: 0) | 200 OK [http://localhost/mashup/add]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MashupController#index (for 127.0.0.1 at 2010-02-05 11:52:48) [GET]
+Rendering mashup/index
+Completed in 70ms (View: 63, DB: 0) | 200 OK [http://localhost/mashup]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MashupController#add (for 127.0.0.1 at 2010-02-05 11:52:50) [POST]
+  Parameters: {"commit"=>"Add Jobs", "authenticity_token"=>"0jD0xKA7LR6xbx4x0+D38Z7/aB0KP7red59m+FSNsQw="}
+Rendering mashup/add
+
+ActionView::TemplateError (uninitialized constant ActionView::Base::CompiledTemplates::GMmarker) on line #1 of app/views/mashup/add.rjs:
+1: page << @map.add_overlay(GMmarker.new(@marker))
+
+    app/views/mashup/add.rjs:1:in `_run_rjs_app47views47mashup47add46rjs'
+    app/views/mashup/add.rjs:1:in `_run_rjs_app47views47mashup47add46rjs'
+
+Rendered rescues/_trace (94.8ms)
+Rendered rescues/_request_and_response (2.5ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MashupController#add (for 127.0.0.1 at 2010-02-05 11:53:59) [POST]
+  Parameters: {"commit"=>"Add Jobs", "authenticity_token"=>"0jD0xKA7LR6xbx4x0+D38Z7/aB0KP7red59m+FSNsQw="}
+Rendering mashup/add
+
+ActionView::TemplateError (uninitialized constant ActionView::Base::CompiledTemplates::GMmarker) on line #1 of app/views/mashup/add.rjs:
+1: page << @map.add_overlay(GMmarker.new([35.3381470821226,-97.351310232762],:title => "Draper Lake", :info_window => "Draper Lake"))
+
+    app/views/mashup/add.rjs:1:in `_run_rjs_app47views47mashup47add46rjs'
+    app/views/mashup/add.rjs:1:in `_run_rjs_app47views47mashup47add46rjs'
+
+Rendered rescues/_trace (89.7ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MashupController#index (for 127.0.0.1 at 2010-02-05 11:54:10) [GET]
+Rendering mashup/index
+Completed in 71ms (View: 63, DB: 0) | 200 OK [http://localhost/mashup]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MashupController#add (for 127.0.0.1 at 2010-02-05 11:54:12) [POST]
+  Parameters: {"commit"=>"Add Jobs", "authenticity_token"=>"0jD0xKA7LR6xbx4x0+D38Z7/aB0KP7red59m+FSNsQw="}
+Rendering mashup/add
+
+ActionView::TemplateError (uninitialized constant ActionView::Base::CompiledTemplates::GMmarker) on line #1 of app/views/mashup/add.rjs:
+1: page << @map.add_overlay(GMmarker.new([35.3381470821226,-97.351310232762],:title => "Draper Lake", :info_window => "Draper Lake"))
+
+    app/views/mashup/add.rjs:1:in `_run_rjs_app47views47mashup47add46rjs'
+    app/views/mashup/add.rjs:1:in `_run_rjs_app47views47mashup47add46rjs'
+
+Rendered rescues/_trace (94.0ms)
+Rendered rescues/_request_and_response (2.5ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MashupController#index (for 127.0.0.1 at 2010-02-05 11:54:46) [GET]
+Rendering mashup/index
+Completed in 70ms (View: 63, DB: 0) | 200 OK [http://localhost/mashup]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MashupController#add (for 127.0.0.1 at 2010-02-05 11:54:48) [POST]
+  Parameters: {"commit"=>"Add Jobs", "authenticity_token"=>"0jD0xKA7LR6xbx4x0+D38Z7/aB0KP7red59m+FSNsQw="}
+Rendering mashup/add
+Completed in 15ms (View: 9, DB: 0) | 200 OK [http://localhost/mashup/add]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MashupController#index (for 127.0.0.1 at 2010-02-05 11:58:13) [GET]
+Rendering mashup/index
+Completed in 19ms (View: 12, DB: 0) | 200 OK [http://localhost/mashup]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MashupController#add (for 127.0.0.1 at 2010-02-05 11:58:15) [POST]
+  Parameters: {"commit"=>"Add Jobs", "authenticity_token"=>"0jD0xKA7LR6xbx4x0+D38Z7/aB0KP7red59m+FSNsQw="}
+Rendering mashup/add
+
+ActionView::TemplateError (undefined method `coordinates' for #<Hash:0x285ac58>) on line #1 of app/views/mashup/add.rjs:
+1: page << @map.add_overlay(GMarker.new(@marker.coordinates,:title => @marker.title, :info_window => @marker.info_window))
+
+    app/views/mashup/add.rjs:1:in `_run_rjs_app47views47mashup47add46rjs'
+    app/views/mashup/add.rjs:1:in `_run_rjs_app47views47mashup47add46rjs'
+
+Rendered rescues/_trace (157.3ms)
+Rendered rescues/_request_and_response (2.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MashupController#index (for 127.0.0.1 at 2010-02-05 12:01:44) [GET]
+Rendering mashup/index
+Completed in 71ms (View: 64, DB: 0) | 200 OK [http://localhost/mashup]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MashupController#add (for 127.0.0.1 at 2010-02-05 12:01:46) [POST]
+  Parameters: {"commit"=>"Add Jobs", "authenticity_token"=>"0jD0xKA7LR6xbx4x0+D38Z7/aB0KP7red59m+FSNsQw="}
+Rendering mashup/add
+ERROR: compiling _run_rjs_app47views47mashup47add46rjs RAISED compile error
+/Volumes/mac_data/mashup/okiereview/app/views/mashup/add.rjs:2: syntax error, unexpected kEND, expecting ')'
+/Volumes/mac_data/mashup/okiereview/app/views/mashup/add.rjs:5: syntax error, unexpected $end, expecting kEND
+Function body:           def _run_rjs_app47views47mashup47add46rjs(local_assigns)
+            old_output_buffer = output_buffer;;@template_format = :html;controller.response.content_type ||= Mime::JS;update_page do |page|;page << @map.add_overlay(GMarker.new(@marker[:coordinates],:title => @marker[:title], :info_window => @marker[:info_window])
+end
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /Volumes/mac_data/mashup/okiereview/app/views/mashup/add.rjs:5:in `compile!'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_view/renderable.rb:61:in `compile'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_view/renderable.rb:28:in `render'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_view/template.rb:199:in `render_template'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_view/base.rb:260:in `render'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:1250:in `render_for_file'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:945:in `render_without_benchmark'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/benchmarking.rb:51:in `render'
+/usr/local/lib/ruby/gems/1.8/gems/activesupport-2.3.4/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/local/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/usr/local/lib/ruby/gems/1.8/gems/activesupport-2.3.4/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/benchmarking.rb:51:in `render'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:1326:in `default_render'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:1332:in `perform_action_without_filters'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/filters.rb:617:in `call_filters'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/usr/local/lib/ruby/gems/1.8/gems/activesupport-2.3.4/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/local/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/usr/local/lib/ruby/gems/1.8/gems/activesupport-2.3.4/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/flash.rb:146:in `perform_action'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:532:in `send'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:532:in `process_without_filters'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/filters.rb:606:in `process'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:391:in `process'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:386:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/routing/route_set.rb:437:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:87:in `dispatch'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:121:in `_call'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:29:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:29:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:9:in `cache'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:28:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/head.rb:9:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/methodoverride.rb:24:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/params_parser.rb:15:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/session/cookie_store.rb:93:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/failsafe.rb:26:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `synchronize'
+/usr/local/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:114:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/reloader.rb:34:in `run'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:108:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/rails-2.3.4/lib/rails/rack/static.rb:31:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:46:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `each'
+/usr/local/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/rails-2.3.4/lib/rails/rack/log_tailer.rb:17:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/content_length.rb:13:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/chunked.rb:15:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/handler/mongrel.rb:64:in `process'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+/usr/local/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/handler/mongrel.rb:34:in `run'
+/usr/local/lib/ruby/gems/1.8/gems/rails-2.3.4/lib/commands/server.rb:111
+/usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+/Volumes/mac_data/mashup/okiereview/app/views/mashup/add.rjs:2: syntax error, unexpected kEND, expecting ')'
+/Volumes/mac_data/mashup/okiereview/app/views/mashup/add.rjs:5: syntax error, unexpected $end, expecting kEND) on line #2 of app/views/mashup/add.rjs:
+1: page << @map.add_overlay(GMarker.new(@marker[:coordinates],:title => @marker[:title], :info_window => @marker[:info_window])
+
+    app/views/mashup/add.rjs:5:in `compile!'
+
+Rendered rescues/_trace (81.3ms)
+Rendered rescues/_request_and_response (2.5ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MashupController#add (for 127.0.0.1 at 2010-02-05 12:02:32) [POST]
+  Parameters: {"commit"=>"Add Jobs", "authenticity_token"=>"0jD0xKA7LR6xbx4x0+D38Z7/aB0KP7red59m+FSNsQw="}
+Rendering mashup/add
+Completed in 16ms (View: 10, DB: 0) | 200 OK [http://localhost/mashup/add]

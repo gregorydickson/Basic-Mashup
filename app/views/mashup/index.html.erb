@@ -13,7 +13,19 @@
   <div id="main">
     <%= @map.div(:width => 800, :height => 500) %>
   <div id="notice" style="display:none;"></div>
-  </div>
+  
+<h3>Add to the Mashup </h3>
+<% form_remote_for :mashup, :url => {:action => :add}  do |f|%>
+
+<p>
+<%= submit_tag 'Add Jobs'%>
+</p>
+<% end %>
+
+</div>
+
+
+
 </body>
 
 </html>

@@ -8,4 +8,18 @@ class MashupController < ApplicationController
     @map.overlay_init(GMarker.new(coordinates,:title => "Oklahoma City", :info_window => "Oklahoma City"))
   end
 
+
+  def add
+    case params[:commit]
+      when "Add Jobs" 
+      #this references the Javascript map variable
+       @map = Variable.new("map")
+       
+       @marker = {:coordinates => [35.3381470821226,-97.351310232762],:title => "Draper Lake", :info_window => "Draper Lake"}
+       
+      when "Add a Point" 
+       #do something
+    end
+  end
+
 end
